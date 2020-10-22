@@ -22,134 +22,144 @@
  */
 //  console.log('This is Working!') <-- confirmed
 
-const APIKEY = '1'
+//// Declaring Variables ////
+
+
+const APIKEY = '4013017'
 const BASE_URL = `https://www.thesportsdb.com/api/v1/json/${APIKEY}`
-const SEARCH_TEAM_NAME_URL =`https://www.thesportsdb.com/api/v1/json/${APIKEY}/searchteams.php`
+const SEARCH_TEAM_NAME_URL = `https://www.thesportsdb.com/api/v1/json/${APIKEY}/searchteams.php`
 const NEXT_FIVE_TEAM_EVENTS_URL = `https://www.thesportsdb.com/api/v1/json/${APIKEY}/eventsnext.php?id=133602` //this is set to Liverpool already...needs to be dynamic and the filter needs to be passed in via a search value
 const ALL_SPORTS_URL = `https://www.thesportsdb.com/api/v1/json/${APIKEY}/all_sports.php`
 const ALL_LEAGUES_URL = `https://www.thesportsdb.com/api/v1/json/${APIKEY}/all_leagues.php`
+const ALL_TEAMS_IN_LEAGUE_URL = `https://www.thesportsdb.com/api/v1/json/${APIKEY}/search_all_teams.php?l=English%20Premier%20League`
+const LIVE_SOCCER_SCORES_URL = `https://www.thesportsdb.com/api/v1/json/${APIKEY}/latestsoccer.php`
+const EVENTS_ON_TV = `https://www.thesportsdb.com/api/v1/json/${APIKEY}/eventstv.php?`
+
+
+
+let body = document.querySelector('body')
+let section = document.querySelector('section')
+let soccer = document.querySelector('#soccer')
+let sports = document.querySelector('#sportsSection')
+let leagues = document.querySelector('.leaguesList')
+let teams = document.querySelector('.teams')
+
+
+
+
+
 
 
 ////// Functions ///////
 
-// getSports = async() => {
-//     try{
-//         const sports = await axios.get(ALL_SPORTS_URL)
-//         //console.log(sports.data)
-//         // console.log(Object.keys(sports.data))
-//         // let allSports = Object.keys(sports.data)
-//         // console.log(allSports) // this isn't right...just returning a single 'sports'
-//         // for (let i = 0; i < allSports.length; i++){
-//         //     let sport = document.createElement('div')
-//         //     sport.innerText = allSports[i]
-//         //     // how do i inject the results into the links in the dropdown?
 
-//         // }
-//     }
-//     catch (error) {
-//         console.log(error)
-//     }
-// }
-//getSports()
-
-
-// getTeams = async() => {
-//     try{
-//         const teams = await axios.get(SEARCH_TEAM_NAME_URL)
-//         // console.log(teams)
-//         // buildDropdown(teams.data)
-//     }
-//     catch (error) {
-//         // console.log(error)
-//     }
-// }
-// getTeams()
-
-
-// let eventData = events.data
-// let formattedEvents = {
-//     match:eventData.strEvent,
-//     matchDate:eventData.dateEvent,
-//     startTime:eventData.strTime,
-//     venue:eventData.strVenue, 
-//     competition:eventData.strLeague  
-// }
-
-// const events = response.data.events
-
-const getEvents = async () => {
-    
+const liveSoccerScores = () => {
     try {
-        const response = await axios.get(NEXT_FIVE_TEAM_EVENTS_URL)
-        console.log(response.data.events)  // we have logged, trying to return the 5 events for use    
-        // buildDisplay(response.data.events)
-    } catch (error){
+        axios.get(LIVE_SOCCER_SCORES_URL)
+            //console.log(response) // returns array of live soccer scores
+            .then(response => {
+                //console.log(response.data.teams.Match[0])
+                // console.log(response.data.teams.Match[0].HomeTeam)
+                let matchArr = response.data.teams.Match
+                for (let i = 0; i < matchArr.length; i++) {
+                    //console.log('hey there')
+                    let matchScore = document.createElement('div')
+                    matchScore.innerText = `Minute: ${matchArr[i].Time} ~ ${matchArr[i].AwayTeam}: ${matchArr[i].AwayGoals} - ${matchArr[i].HomeTeam}: ${matchArr[i].HomeGoals}`
+                    soccer.appendChild(matchScore)
+                }
+            })
+    } catch (error) {
         console.log(error)
     }
 }
-getEvents()
+//liveSoccerScores()
 
-const getEventsData = async (events) => {
-    const NEXT_FIVE_TEAM_EVENTS_URL = `https://www.thesportsdb.com/api/v1/json/${APIKEY}/eventsnext.php?id=133602`
+// this stopped display at 10pm and is now throwing an error "cannot read property length"...looks like the erray is empty now...
+// switch statement / do while loop to correct the "no current games" scenario
+
+
+const allSportsList = () => {
+    try{
+        axios.get(ALL_SPORTS_URL)
+        .then(response => {
+            //console.log(response.data.sports)
+        let sportsList = response.data.sports
+        for (let s = 0; s < sportsList.length; s++){
+            //console.log('hey' x 20)
+            let sportTab = document.createElement('a')
+            sportTab.innerText = `${sportsList[s].strSport}`
+            sports.appendChild(sportTab)
+        }
+        })
+    }catch(error){
+        console.log(error)
+    }
+}
+allSportsList()
+
+
+const allLeaguesList = () => {
+    try{
+        axios.get(ALL_LEAGUES_URL)
+        .then(response => {
+            //console.log(response.data.leagues) 
+        let leaguesList = response.data.leagues
+        for (let l = 0; l < leaguesList.length; l++) {
+            //console.log('hey')       
+            let leagueTab = document.createElement('a')
+            leagueTab.innerText = `${leaguesList[l].strLeague}`
+            // leagueTab.innerHTML = (link to )
+            leagues.appendChild(leagueTab)
+        }
+        })
+        } catch(error) {
+        console.log(error)
+        }
+    }
+allLeaguesList()
+
+// need to add an event listener for the league that is clicked on => push the string value to the teams_in_league api and take user to teams.html
+// on teams.html = list out all teams in that league
+// click on team (event listener passes in team ID to get next 5 events api
+// -> display the next 5 events in html form pop up, ask them to fill out for email info of those games/reminder
+
+
+const teamsInLeague = () => {
     try {
-        const events = await axios.get(NEXT_FIVE_TEAM_EVENTS_URL)
-        //console.log(events.data) // this is returning an array of just 5 events, but why is it already filtered to Liverpool?
-        let eventData = events.data
-        displayEventData(eventData)
-        } catch (error) {
-            console.log(error)
-    } 
+        axios.get(ALL_TEAMS_IN_LEAGUE_URL)
+        .then(response => {
+            console.log(response.data.teams)
+        let teamsList = response.data.teams
+        for (let t = 0; t < teamsList.length; t++) {
+            // let teamIcon = document.createElement('img')
+            // teamIcon.innerHTML = <img>${teamsList[t].strTeamBadge}</img>
+            let teamTab = document.createElement('li')
+            teamTab.className = 'teamsList'
+            teamTab.innerText = `${teamsList[t].strTeam}`
+            teams.appendChild(teamTab)
+        }
+        })
+    }catch(error){
+        console.log(error)
+    }
 }
-
-const buildDisplay = (events) => {
-    const displayArea = document.querySelector('.events')
-    const dropdown = document.createElement('select')
-    dropdown.addEventListener('change', getEventsData)
-    events.forEach((event) => {
-        let displayDiv = document.createElement('div')
-        displayDiv.innerText = `${event.match} - ${event.matchDate} - ${event.startTime}`
-        let gameDetails = displayDiv.innerText
-        dropdown.appendChild(gameDetails)
-    })
-displayArea.appendChild(dropdown)
-}
-
-// //no errors, but not displaying...
-
-const displayEventData = (eventData) => {
-    let searchArea = document.querySelector('.search')
-    let resultWrapper = document.createElement('div')
-    let resultHeader = document.createElement('h2') // might want to use this for the img src element
-    let currentEventsDisplay = e
-
-    resultWrapper.className = 'search-result'
-    resultHeader.innerText = eventData.match
-
-    resultWrapper.appendChild(resultHeader)
-    resultWrapper.appendChild(currentEventsDisplay)
-    searchArea.appendChild(resultWrapper)
-}
-
-window.onload = getEvents
-
-// can I use OOP to create a grid/image system that is dynamic?
-// use buildDisplay as a class 
+teamsInLeague()
 
 
-////// EVENT LISTENERS//////
 
-// this will be an event listener for click that prompts an HTML form about the Calendar sync they'd like...
-// const syncCal = document.querySelector('#calSyncLink')
-// syncCal.addEventListener('click', )
+// for homepage...
+// this will need a current date injected into the API URL to filter the results correctly..can I do that via a calendar or an HTML form?
+// input a calendar? accomplish 2 things: 1. take today's date and push into function/api url below. 2. allow user to choose a date and see what's on tv.
 
-// I need to add eventlisteners for the different sports/leagues/teams menus to pass through the value to the correct API
-
-// const filterTeam = () => {
-// const teamInput = document.getElementById('teams')
-// teamInput.addEventListener('click', function(e) {
-//     e.preventDefault()
-//     let input = document.getElementById('#click').value
-    
-// })
+// const televisedEvents = () => {
+//     //console.log('this sucks')
+//     try{
+//         axios.get(EVENTS_ON_TV)
+//         .then(response => {
+//             console.log(response)
+//         })
+//     }catch(error){
+//         console.log(error)
+//     }
 // }
-
+// televisedEvents()

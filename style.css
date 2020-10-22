@@ -57,10 +57,10 @@ header {
 
 div {
     display: inline-block;
-    font-size: 20px;
+    font-size: 25px;
     margin: 10px;
     color: #FFFFFF;
-    padding: 20px;
+    padding: 10px;
     grid-row-end: span 2;
 }
 
@@ -83,11 +83,15 @@ footer {
     grid-column-end: span 2;
 }
 
-/* starting to try the hover dropdown menu styling */
+/* #allSportsList{
+    display: grid;
+    max-width: 75%; 
+}*/
 
 a {
     color: white;
     text-decoration: none;
+    order: 5;
 }
 
 .links {
@@ -111,7 +115,6 @@ select option {
     flex-wrap: wrap;
 }
 
-
 .search .search-result {
     background-color: #fafafa;
     text-align: center;
@@ -121,3 +124,6 @@ select option {
     margin: 1em auto;
 }
 
+.teamsList {
+    list-style-type: none;
+}
