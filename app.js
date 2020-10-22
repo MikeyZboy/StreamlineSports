@@ -43,7 +43,7 @@ let soccer = document.querySelector('#soccer')
 let sports = document.querySelector('#sportsSection')
 let leagues = document.querySelector('.leaguesList')
 let teams = document.querySelector('.teams')
-
+let allSports = document.querySelector('#sportsList')
 
 
 
@@ -63,7 +63,7 @@ const liveSoccerScores = () => {
                 let matchArr = response.data.teams.Match
                 for (let i = 0; i < matchArr.length; i++) {
                     //console.log('hey there')
-                    let matchScore = document.createElement('div')
+                    let matchScore = document.createElement('option')
                     matchScore.innerText = `Minute: ${matchArr[i].Time} ~ ${matchArr[i].AwayTeam}: ${matchArr[i].AwayGoals} - ${matchArr[i].HomeTeam}: ${matchArr[i].HomeGoals}`
                     soccer.appendChild(matchScore)
                 }
@@ -72,7 +72,7 @@ const liveSoccerScores = () => {
         console.log(error)
     }
 }
-//liveSoccerScores()
+liveSoccerScores()
 
 // this stopped display at 10pm and is now throwing an error "cannot read property length"...looks like the erray is empty now...
 // switch statement / do while loop to correct the "no current games" scenario
@@ -82,13 +82,12 @@ const allSportsList = () => {
     try{
         axios.get(ALL_SPORTS_URL)
         .then(response => {
-            //console.log(response.data.sports)
         let sportsList = response.data.sports
         for (let s = 0; s < sportsList.length; s++){
-            //console.log('hey' x 20)
-            let sportTab = document.createElement('a')
+            let sportTab = document.createElement('li')
+            sportTab.className = 'list'
             sportTab.innerText = `${sportsList[s].strSport}`
-            sports.appendChild(sportTab)
+            allSports.appendChild(sportTab)
         }
         })
     }catch(error){
@@ -102,11 +101,10 @@ const allLeaguesList = () => {
     try{
         axios.get(ALL_LEAGUES_URL)
         .then(response => {
-            //console.log(response.data.leagues) 
         let leaguesList = response.data.leagues
         for (let l = 0; l < leaguesList.length; l++) {
-            //console.log('hey')       
-            let leagueTab = document.createElement('a')
+            let leagueTab = document.createElement('li')
+            leagueTab.className = 'list'
             leagueTab.innerText = `${leaguesList[l].strLeague}`
             // leagueTab.innerHTML = (link to )
             leagues.appendChild(leagueTab)
@@ -134,7 +132,7 @@ const teamsInLeague = () => {
             // let teamIcon = document.createElement('img')
             // teamIcon.innerHTML = <img>${teamsList[t].strTeamBadge}</img>
             let teamTab = document.createElement('li')
-            teamTab.className = 'teamsList'
+            teamTab.className = 'list'
             teamTab.innerText = `${teamsList[t].strTeam}`
             teams.appendChild(teamTab)
         }
@@ -144,6 +142,36 @@ const teamsInLeague = () => {
     }
 }
 teamsInLeague()
+
+
+
+// TO DO THURSDAY //
+
+/// EVENT LISTENERS / FILTERS ///
+
+// dropdown options from Sports/Leagues/Teams
+
+// sports click -> display today's games for that sport
+
+// Leagues click -> display today's games for that league, take the user to the Teams in that League page, filtered
+
+// teams click -> display that team's next 5 events in same window...
+
+
+
+
+
+// html form input from text on aside -> date, team you're looking for?
+
+// calendar onload -> today's date to display today's events?
+// could do a form - today is the ""
+// what day are you looking for an event?
+
+
+
+
+
+
 
 
 

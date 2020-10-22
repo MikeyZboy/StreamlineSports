@@ -275,3 +275,154 @@ const leaguesOnly = () => {
     
 // })
 // }
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 75px 1fr 30px;
+    text-align: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Commissioner', sans-serif;
+    background-color: rgb(255, 255, 255);
+}
+
+.flex-ctr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00B2A9;
+}
+
+h1 {
+    display: flex;
+    margin: 0 auto;
+    padding: 23px;
+    background-color: white;
+}
+
+#homepage {
+    grid-column: 1;
+    font-weight: 600;
+    font-size: xx-large;
+    color: #00B2A9;
+}
+
+span {
+    justify-content: space-evenly;
+    grid-column-start: 2;
+    color: white;
+    font-family: 'Commissioner', sans-serif;
+}
+
+header {
+    display: inline-grid;
+    grid-column-start: 2;
+    background-color: #00B2A9;
+    border: 5px solid white;
+}
+
+.logo {
+    position: relative;
+    top: 0;
+    left: 0;
+    background: white;
+}
+
+div {
+    display: inline-block;
+    font-size: 25px;
+    margin: 10px;
+    color: #FFFFFF;
+    padding: 10px;
+    grid-row-end: span 2;
+}
+
+.events {
+    background-color: white;
+    height: 75%;
+    width: 75%;
+    position: absolute;
+    right: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 5vw);
+    grid-gap: 15px;
+}
+
+footer {
+    grid-column-end: span 2;
+}
+
+/* #allSportsList{
+    display: grid;
+    max-width: 75%; 
+}*/
+
+a {
+    color: white;
+    text-decoration: none;
+    order: 5;
+}
+
+.links {
+    position: relative;
+    display: inline-block;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+select {
+    padding:1em;
+}
+
+select option {
+    padding:1em;
+}
+
+.search {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.search .search-result {
+    background-color: #fafafa;
+    text-align: center;
+    border:1px solid #bdbdbd;
+    border-radius: 4px;
+    width: 60%;
+    margin: 1em auto;
+}
+
+.teamsList {
+    list-style-type: none;
+}
+
+/* trying to style the dropdown nav */
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
