@@ -9,7 +9,7 @@ Links: [Github](https://github.com/MikeyZboy) | [Linkedin](https://www.linkedin.
 ----------------------------------------
 ### Description ###
 
-For sports fans who want just the facts. 
+For sports fans who just want facts. 
 
 ----------------------------------------
 ### Getting Started ###
