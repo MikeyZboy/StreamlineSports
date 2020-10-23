@@ -165,62 +165,13 @@ document.addEventListener('DOMContentLoaded', allSportsList)
 
 // go back functions
 
-// const backToLeagues = () => {
-//     let backButtonDiv = document.createElement('div')
-//     let backButtonLeagues = document.createElement('button')
-//     backButtonLeagues.classList.add('backButton')
-//     backButtonLeagues.innerText = 'Back to Leagues'
-//     backButtonDiv.appendChild(backButtonLeagues)
-//     backButtonLeagues.addEventListener('click', function(){
-//         allLeaguesList()
-//     })
-// }
-
-// const backToTeams = () => {
-//     let backTeamsDiv = document.createElement('div')
-//     let backButtonTeams = document.createElement('button')
-//     backButtonTeams.classList.add('backButton')
-//     backButtonTeams.innerText = 'Back to Teams'
-//     backTeamsDiv.appendChild(backButtonTeams)
-//     team.appendChild(backTeamsDiv)
-//     backButtonTeams.addEventListener('click', function(){
-//         teamsInLeague(name)
-//     })
-// }
-
-
-
-
-
-
-
-// WOULD LOVE TO PUT UP EVENTSTODAY ON HOMEPAGE POST MVP
-
-// const eventsToday = () => {
-//     //console.log('this sucks')
-//     try{
-//         axios.get(EVENTS_ON_TV)
-//         .then(response => {
-//             console.log(response)
-//         })
-//     }catch(error){
-//         console.log(error)
-//     }
-// }
-// eventsToday()
-
-// const liveSoccerScores = () => {
-//     try {
-//         axios.get(LIVE_SOCCER_SCORES_URL)
-//             .then(response => {
-//                 let matchArr = response.data.teams.Match
-//                 for (let i = 0; i < matchArr.length; i++) {
-//                     let matchScore = document.createElement('option')
-//                     matchScore.innerText = `Minute: ${matchArr[i].Time} ~ ${matchArr[i].AwayTeam}: ${matchArr[i].AwayGoals} - ${matchArr[i].HomeTeam}: ${matchArr[i].HomeGoals}`
-//                     soccer.appendChild(matchScore)
-//                 }
-//             })
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
+const backToLeagues = () => {
+    let backButtonSpan = document.createElement('span')
+    let backButtonLeagues = document.createElement('button')
+    backButtonLeagues.classList.add('backButton')
+    backButtonLeagues.innerText = 'Back to Leagues'
+    backButtonSpan.appendChild(backButtonLeagues)
+    backButtonLeagues.addEventListener('click', function(){
+        allLeaguesList()
+    })
+}
