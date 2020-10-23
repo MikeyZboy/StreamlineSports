@@ -38,11 +38,36 @@ h2 {
     background: white;
 }
 
+p {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
 #homepage {
     grid-column: 1;
     font-weight: 600;
     font-size: xx-large;
     color: #00B2A9;
+}
+
+.intro {
+    color: white;
+    margin: 20px 40px;
+    background-color: #007771;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px black;
+    text-align: right;
+}
+
+img {
+    height: 40%;
+    width: 40%;
+    margin-left: 30%;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px black;
 }
 
 .leagues{
