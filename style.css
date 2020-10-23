@@ -27,7 +27,7 @@ h1 {
     padding: 23px;
 }
 
-h2 {
+#hello {
     text-align: center;
     color: white;
     font-size: 50px;
@@ -61,7 +61,7 @@ p {
     text-align: right;
 }
 
-img {
+.stadiumPic {
     height: 40%;
     width: 40%;
     margin-left: 30%;
@@ -146,64 +146,29 @@ img {
     right: 0;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 5vw);
-    grid-gap: 15px;
-}
-
 footer {
     grid-column-end: span 2;
 }
-
-/* starting to try the hover dropdown menu styling */
 
 a {
     color: white;
     text-decoration: none;
     font-size: 30px;
-
 }
 
 .links {
     position: relative;
-    display: inline-block;
-    padding: 1em;
     display: flex;
     justify-content: center;
 }
 
-select {
-    padding:1em;
+#backLink {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-right: 20px;
 }
 
-select option {
-    padding:1em;
-}
-
-.search {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.search .search-result {
-    background-color: #fafafa;
-    text-align: center;
-    border:1px solid #bdbdbd;
-    border-radius: 4px;
-    width: 60%;
-    margin: 1em auto;
-}
-
-.sports{
-    /* display: grid;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 3; */
-}
-
-.sportDiv{
+.sportDiv {
     display: grid;
     grid-template-columns: 1fr;
 }
@@ -247,80 +212,7 @@ select option {
     padding: 20px;
     margin: 10px auto;
     color: white;
-    background-color: black;
+    background-color: darkslategray;
     border-radius: 10px;
     font-size: 20px;
-}
-
-.list {
-    list-style-type: none;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-  
-.dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-}
-
-.dropdown:hover .dropdown-content1 {
-    display: block;
-}
-
-.dropdown:hover .dropdown-content2 {
-    display: block;
-}
-
-.dropdown:hover .dropdown-content3 {
-    display: block;
-}
-
-.dropdown-content1 a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown-content2 a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown-content3 a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown-content1 a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content2 a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content3 a {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown {
-    padding: 1em;
-    display: flex;
-    justify-content: center;
 }
