@@ -16,8 +16,6 @@ const EVENTS_ON_TV = `https://www.thesportsdb.com/api/v1/json/${APIKEY}/eventstv
 
 let body = document.querySelector('body')
 let section = document.querySelector('section')
-let soccer = document.querySelector('#soccer')
-let leagues = document.querySelector('#leaguesList')
 let team = document.querySelector('.team')
 let allSports = document.querySelector('#sportsList')
 
@@ -115,7 +113,6 @@ const teamsInLeague = async (name) => {
     try {
         let response = await axios.get(ALL_TEAMS_IN_LEAGUE_URL+name)
         let teamsList = response.data.teams
-        console.log(teamsList)
         teamsList.forEach(team => {
             let teamDiv = document.createElement('div')
             let teamTitle = document.createElement('h2')
@@ -137,11 +134,9 @@ const teamsInLeague = async (name) => {
 }
 
 const displayTeam = async (id) => {
-    console.log(id)
     document.querySelector('.allTeams').style.display = 'none'
     try{
         let response = await axios.get(TEAM_ID_URL+id)
-        console.log(response.data.teams)
         let teams = response.data.teams[0]
         let teamTitle = document.createElement('h1')
         let teamBanner = document.createElement('img')

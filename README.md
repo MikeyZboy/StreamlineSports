@@ -9,47 +9,47 @@ Links: [Github](https://github.com/MikeyZboy) | [Linkedin](https://www.linkedin.
 ----------------------------------------
 ### Description ###
 
-For the sports fans who want sports centered around their lives, not the other way around. 
-:sunglasses:
+For sports fans who want just the facts. 
 
 ----------------------------------------
 ### Getting Started ###
 
 Via web browser:
 
-Simply navigate to StreamlineSports.com and access:
- - current/upcoming sporting events
- - filter your favorite teams/sports
- - follow *all* of their competitions
- - access score predictions
+Simply navigate to StreamlineSports.com and click get started:
+ - find information on various sports around the world
+ - filter your favorite sports/leagues/teams
+ - know upcoming events
+ - access score predictions (v2)
 
 ----------------------------------------
 ### User Stories ###
 
-As a user, I should be able to land on a clean, easy to consume, navigable homepage that displays what is upcoming in sporting events.
+As a user, I should be able to land on a clean, easy to consume, navigable homepage that will allow me to learn more about sports, teams, and what sporting events are taking place.
 
-As a user, I want options for me to take action:
+As a user, I want options for me to:
  - see what events are taking place today
  - filter to the sport(s) I want
  - filter to the team I like to follow
  - sign up for updates on the team/sport (merch, games, transfers, news) 
 
-As a user, I may want to sync that sport/team's future schedule with my calendar app (Google, Apple, etc.).
+As a user, I may want to sync that sport/team's future schedule with my calendar app (Google, Outlook, iCal).
 
 As a user, I may also want to dive deeper into future score predictions to sound like I know my team or make wagers against the house (*not part of Streamline*).
 
 As a user, I may want to connect with other like-minded fans via:
+- Twitter
+- Instagram
 - Reddit
-- Facebook Groups
-- Zoom
 - Local Meetups
 - Bars/Restaurants showing the events
 
 ----------------------------------------
 ### Screenshots ###
 
-...loading...
-
+![Streamline Homepage](https://imgur.com/8HbWsPM.jpg)
+![Streamline Sports Page](https://imgur.com/etBdNRL.jpg)
+![Streamline Teams](https://imgur.com/T7sa6NC.jpg)
 
 ----------------------------------------
 ### Planned Updates ###
@@ -76,6 +76,6 @@ StreamlineSports is under default copyright licensing.
 ----------------------------------------
 #### Credits ####
 
-The Sports DB
+The Sports DB API
 
 Boggio Analytics (FootBall Scores Predictor)
