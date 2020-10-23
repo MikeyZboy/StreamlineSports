@@ -3,11 +3,7 @@
 }
 
 body {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 75px 1fr 30px;
-    text-align: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     font-family: 'Commissioner', sans-serif;
     background-color: rgb(255, 255, 255);
@@ -20,11 +16,27 @@ body {
     background-color: #00B2A9;
 }
 
-h1 {
+.container {
+    min-height: 90vh;
+    background-color: #00B2A9;
+}
+
+header {
     display: flex;
+    justify-content: left;
+    background-color: #007771;
+    align-items: left;
+}
+
+h1 {
     margin: 0 auto;
-    padding: 23px;
     background-color: white;
+    padding: 23px;
+}
+
+.logo {
+    text-align: left;
+    background: white;
 }
 
 #homepage {
@@ -34,34 +46,61 @@ h1 {
     color: #00B2A9;
 }
 
-span {
-    justify-content: space-evenly;
-    grid-column-start: 2;
-    color: white;
-    font-family: 'Commissioner', sans-serif;
+.leagues{
+    display: hidden;
 }
 
-header {
-    display: inline-grid;
-    grid-column-start: 2;
-    background-color: #00B2A9;
-    border: 5px solid white;
-}
-
-.logo {
-    position: relative;
-    top: 0;
-    left: 0;
-    background: white;
-}
-
-div {
-    display: inline-block;
-    font-size: 20px;
-    margin: 10px;
-    color: #FFFFFF;
+.allLeagues {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 20px;
-    grid-row-end: span 2;
+}
+
+.leagueDiv {
+    background-color: darkslategray;
+    color: white;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.leagueDiv:hover{
+    color: gold;
+}
+
+.team{
+    display: hidden;
+}
+
+.allTeams {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 30px;
+}
+
+.allTeams img {
+    height: auto;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.allTeams div {
+    background-color: #007771;
+    margin: 10px;
+    padding: 0 20px 20px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+    color: white;
+}
+
+.allTeams div:hover {
+    color: gold;
+}
+
+.teamBanner {
+    width: 100vw;
+    height: auto;
 }
 
 .events {
@@ -122,10 +161,59 @@ select option {
 }
 
 .sports{
-    display: grid;
+    /* display: grid;
     grid-column-start: 2;
     grid-column-end: 3;
-    grid-row-start: 3;
+    grid-row-start: 3; */
+}
+
+.sportDiv{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.sportTab {
+    color: white;
+    margin: 20px 40px;
+    background-color: #007771;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px black;
+    text-align: right;
+}
+
+.sportTab h2 {
+    font-size: 40px;
+    margin: 0;
+    text-align: left;
+}
+
+.sportImage {
+    text-align: right;
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: -40px;
+    display: inline;
+    height: 15vh;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px black;
+}
+
+.summary {
+    display: none;
+    font-size: 28px;
+    text-align: left;
+}
+
+.leaguesBtn {
+    display: none;
+    padding: 20px;
+    margin: 10px auto;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    font-size: 20px;
 }
 
 .list {
