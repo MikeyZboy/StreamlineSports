@@ -161,17 +161,3 @@ const displayTeam = async (id) => {
 //// Event Listeners ////
 
 document.addEventListener('DOMContentLoaded', allSportsList)
-
-
-// go back functions
-
-const backToLeagues = () => {
-    let backButtonSpan = document.createElement('span')
-    let backButtonLeagues = document.createElement('button')
-    backButtonLeagues.classList.add('backButton')
-    backButtonLeagues.innerText = 'Back to Leagues'
-    backButtonSpan.appendChild(backButtonLeagues)
-    backButtonLeagues.addEventListener('click', function(){
-        allLeaguesList()
-    })
-}
