@@ -14,13 +14,13 @@
  * 2. test a function that grabs data from the API
  * 3. what type are we getting? [keys, values, etc.]
  * 
- * 
- * 
- * 
- * 
- * 
  */
+
+
 //  console.log('This is Working!') <-- confirmed
+
+
+
 
 //// Declaring Variables ////
 
@@ -36,7 +36,6 @@ const LIVE_SOCCER_SCORES_URL = `https://www.thesportsdb.com/api/v1/json/${APIKEY
 const EVENTS_ON_TV = `https://www.thesportsdb.com/api/v1/json/${APIKEY}/eventstv.php?`
 
 
-
 let body = document.querySelector('body')
 let section = document.querySelector('section')
 let soccer = document.querySelector('#soccer')
@@ -45,24 +44,15 @@ let team = document.querySelector('.team')
 let allSports = document.querySelector('#sportsList')
 
 
-
-
-
-
-
 ////// Functions ///////
 
 
 const liveSoccerScores = () => {
     try {
         axios.get(LIVE_SOCCER_SCORES_URL)
-            //console.log(response) // returns array of live soccer scores
             .then(response => {
-                //console.log(response.data.teams.Match[0])
-                // console.log(response.data.teams.Match[0].HomeTeam)
                 let matchArr = response.data.teams.Match
                 for (let i = 0; i < matchArr.length; i++) {
-                    //console.log('hey there')
                     let matchScore = document.createElement('option')
                     matchScore.innerText = `Minute: ${matchArr[i].Time} ~ ${matchArr[i].AwayTeam}: ${matchArr[i].AwayGoals} - ${matchArr[i].HomeTeam}: ${matchArr[i].HomeGoals}`
                     soccer.appendChild(matchScore)
@@ -72,11 +62,6 @@ const liveSoccerScores = () => {
         console.log(error)
     }
 }
-// liveSoccerScores()
-
-// this stopped display at 10pm and is now throwing an error "cannot read property length"...looks like the erray is empty now...
-// switch statement / do while loop to correct the "no current games" scenario
-
 
 const allSportsList = async () => {
     try{
@@ -161,17 +146,11 @@ const allLeaguesList = async (sport) => {
         console.log(error)
     }
 }
-// allLeaguesList()
-
-
-
-
 
 // need to add an event listener for the league that is clicked on => push the string value to the teams_in_league api and take user to teams.html
 // on teams.html = list out all teams in that league
 // click on team (event listener passes in team ID to get next 5 events api
 // -> display the next 5 events in html form pop up, ask them to fill out for email info of those games/reminder
-
 
 const teamsInLeague = async (name) => {
     document.querySelector('.allLeagues').style.display = 'none'
@@ -203,7 +182,6 @@ const teamsInLeague = async (name) => {
     }
     team.appendChild(allTeams)
 }
-// teamsInLeague()
 
 
 const displayTeam = async (id) => {
@@ -215,47 +193,29 @@ const displayTeam = async (id) => {
         let teams = response.data.teams[0]
         let teamTitle = document.createElement('h1')
         let teamBanner = document.createElement('img')
+        let teamDescription = document.createElement('div')
+        let teamWebsite = document.createElement('div')
+        teamWebsite.classList.add('teamWeb')
+        teamWebsite.innerHTML = teams.strWebsite
+        teamDescription.classList.add('teamDetails')
+        teamDescription.innerText = teams.strDescriptionEN
         teamBanner.classList.add('teamBanner')
         teamTitle.innerText = teams.strTeam
         teamBanner.src = teams.strTeamBanner
+        teamDescription.appendChild(teamWebsite)
         team.appendChild(teamBanner)
+        team.appendChild(teamDescription)
     }
     catch(error){
         console.log(error)
     }
 }
 
-// example for trying to make a dynamic 'a' tag
-// var img11=document.createElement("a");
-
-// img11.href='http://google.de';
-// img11.innerHTML = 'Google';
-
-// document.body.appendChild( img11 );
-
-
-// TO DO THURSDAY //
-
-/// EVENT LISTENERS / FILTERS ///
+// go back function
 
 
 
-
-
-
-// dropdown options from Sports/Leagues/Teams
-
-// sports click -> display today's games for that sport
-
-// Leagues click -> display today's games for that league, take the user to the Teams in that League page, filtered
-
-// teams click -> display that team's next 5 events in same window...
-
-
-
-// for homepage...
-// this will need a current date injected into the API URL to filter the results correctly..can I do that via a calendar or an HTML form?
-// input a calendar? accomplish 2 things: 1. take today's date and push into function/api url below. 2. allow user to choose a date and see what's on tv.
+// WOULD LOVE TO PUT UP EVENTSTODAY ON HOMEPAGE POST MVP
 
 // const eventsToday = () => {
 //     //console.log('this sucks')

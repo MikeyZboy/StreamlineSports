@@ -6,13 +6,6 @@ body {
     min-height: 100vh;
     margin: 0;
     font-family: 'Commissioner', sans-serif;
-    background-color: rgb(255, 255, 255);
-}
-
-.flex-ctr {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #00B2A9;
 }
 
@@ -32,6 +25,12 @@ h1 {
     margin: 0 auto;
     background-color: white;
     padding: 23px;
+}
+
+h2 {
+    text-align: center;
+    color: white;
+    font-size: 50px;
 }
 
 .logo {
@@ -103,6 +102,17 @@ h1 {
     height: auto;
 }
 
+.teamDetails {
+    color: white;
+    padding: 20px 5px 0 5px;
+    text-align: center;
+    font-size: 25px;
+    margin: 20px;
+    background-color: #007771;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+}
+
 .events {
     background-color: white;
     height: 75%;
@@ -127,7 +137,8 @@ footer {
 a {
     color: white;
     text-decoration: none;
-    order: 5;
+    font-size: 30px;
+
 }
 
 .links {
