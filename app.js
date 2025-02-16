@@ -1,9 +1,6 @@
-//  console.log('This is Working!') <-- confirmed
-
 ////**** Streamline Sports ****////
 
 //// Declaring Variables ////
-
 const APIKEY = '4013017'
 const BASE_URL = `https://www.thesportsdb.com/api/v1/json/${APIKEY}`
 const TEAM_ID_URL = `https://www.thesportsdb.com/api/v1/json/${APIKEY}/lookupteam.php?id=`
@@ -64,7 +61,7 @@ const allSportsList = async () => {
             ////// adding elements to document
         }
         allSports.appendChild(sportDiv)
-    }catch(error){
+    } catch(error) {
         console.log(error)
     }
 }
@@ -96,8 +93,7 @@ const allLeaguesList = async (sport) => {
             })
             allLeagues.appendChild(leagueDiv)
         })
-    }
-    catch(error) {
+    } catch(error) {
         console.log(error)
     }
 }
@@ -118,7 +114,7 @@ const teamsInLeague = async (name) => {
             let teamTitle = document.createElement('h2')
             let teamImg = document.createElement('img')
             teamTitle.innerText = team.strTeam
-            teamImg.src = team.strTeamBadge
+            teamImg.src = team.strBadge
             teamDiv.appendChild(teamTitle)
             teamDiv.appendChild(teamImg)
             teamDiv.addEventListener('click', function(){
@@ -148,7 +144,7 @@ const displayTeam = async (id) => {
         teamDescription.innerText = teams.strDescriptionEN
         teamBanner.classList.add('teamBanner')
         teamTitle.innerText = teams.strTeam
-        teamBanner.src = teams.strTeamBanner
+        teamBanner.src = teams.strBanner
         teamDescription.appendChild(teamWebsite)
         team.appendChild(teamBanner)
         team.appendChild(teamDescription)
